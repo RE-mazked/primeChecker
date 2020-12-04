@@ -1,3 +1,5 @@
+import sys
+
 def checkPrimary(num):
     res = 0
     divBy = 0
@@ -18,7 +20,11 @@ def checkPrimary(num):
 
 
 if __name__ == '__main__':
-    num = int(input("Write a number:"))
+    if len(sys.argv) == 1:
+        num = int(input("Write a number:"))
+    else:
+        num = int(sys.argv[1])
+
     primaryBool, divBy, res = checkPrimary(num)
     if primaryBool:
         print(f'Not prime primary, divisible by {divBy}')
